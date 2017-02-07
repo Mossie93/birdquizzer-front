@@ -1,0 +1,70 @@
+<div class='row summary-question'>
+  <div class='col-sm-1 summary-question__number-column'>
+    <div class='summary-question__number summary-question__number--correct'
+      *ngIf="question.correct">
+      Q. {{question.number}}
+    </div>
+    <div class='summary-question__number summary-question__number--incorrect'
+      *ngIf="!question.correct">
+      Q. {{question.number}}
+    </div>
+  </div>
+  <div class='col-sm-11'>
+    <div class='panel panel-square'>
+      <div class='panel-body summary-question__panel'
+        [class.summary-question__panel--with-image]="question.largeImage">
+        <div class='summary-question__panel--left-aligned'>
+          <div class='summary-question__text'>
+            {{question.questionText}}
+          </div>
+          <div class='summary-question__correctness summary-question__correctness--correct'
+            *ngIf="question.correct">
+            Correct
+          </div>
+          <div class='summary-question__correctness summary-question__correctness--incorrect'
+            *ngIf="!question.correct">
+            Icorrect
+          </div>
+        </div>
+        <div class='summary-question__panel--right-aligned'>
+          <div class='summary-question__answers-link' (click)="toggleAnswers()">
+            <i class='material-icons summary-question__answers-link' *ngIf="isCollapsed">
+              keyboard_arrow_down
+            </i>
+            <i class='material-icons summary-question__answers-link' *ngIf="!isCollapsed">
+              keyboard_arrow_up
+            </i>
+          </div>
+        </div>
+        <div class='summary-question__image-link-section' (click)="lgModal.show()">
+          View Image
+          <i class='material-icons summary-question__image-link-icon'>image</i>
+        </div>
+      </div>
+    </div>
+
+    <div [collapse]="isCollapsed">
+      <summary-answer *ngFor="let answer of question.answers" [answer]="answer">
+      </summary-answer>
+    </div>
+
+  </div>
+</div>
+
+<div bsModal #lgModal='bs-modal' class='modal fade' tabindex='-1' role='dialog' aria-labelledby='Question Image' aria-hidden='true'>
+  <div class='modal-dialog modal-lg'>
+    <div class='summary-question__image-modal-content modal-content'>
+      <div class='modal-header'>
+        <h4 class='summary-question__image-modal-title modal-title pull-left'>
+          Question {{ question.number }} of {{questionsCount}}
+        </h4>
+        <button type='button' class='close pull-right' (click)="lgModal.hide()" aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>
+      <div class='modal-body summary-question__image-modal-body'>
+        <img [src]="question.largeImage" class='summary-question__image--large'/>
+      </div>
+    </div>
+  </div>
+</div>
