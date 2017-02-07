@@ -1,0 +1,30 @@
+.quiz-answer {
+  &__row {
+    background: white;
+    color: #4a4a4a;
+    font-size: 16px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    padding: 30px 35px;
+    margin-bottom: 1px;
+
+    &.marked {
+      color: white;
+      background: #7e57c2;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__mark {
+    color: #7e57c2;
+    margin-right: 30px;
+
+    &.marked {
+      color: white;
+    }
+  }
+}

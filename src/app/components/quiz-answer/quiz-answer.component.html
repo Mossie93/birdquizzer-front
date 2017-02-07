@@ -1,0 +1,9 @@
+<div class='quiz-answer'>
+  <div class='quiz-answer__row' [class.marked]="marked">
+    <div class='quiz-answer__mark' [class.marked]="marked">
+      <i class="material-icons md-48" *ngIf="marked">radio_button_checked</i>
+      <i class="material-icons md-48" *ngIf="!marked">radio_button_unchecked</i>
+    </div>
+    {{ answer.answerText }}
+  </div>
+</div>
