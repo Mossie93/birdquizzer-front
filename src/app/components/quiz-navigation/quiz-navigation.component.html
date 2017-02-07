@@ -1,0 +1,27 @@
+<div class='quiz-navigation row'>
+  <div class='row'>
+    <div class='col-md-9 quiz-navigation__pagination-section'>
+      <div class='quiz-navigation__pagination-icon'
+        *ngFor="let quizQuestion of quiz.questions">
+        <i class='material-icons md-21' *ngIf="shouldBeMarked(quizQuestion)">
+          lens
+        </i>
+        <i class='material-icons md-21' *ngIf="!shouldBeMarked(quizQuestion)">
+          radio_button_unchecked
+        </i>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-9 quiz-navigation__submit-section'>
+      <button
+        [class.disabled]="!question.submittedAnswer"
+        [class.btn-white]="!question.submittedAnswer"
+        [class.btn-purple]="question.submittedAnswer"
+        class='btn quiz-navigation__next-question-btn btn-square'
+        (click)="answerQuestion()">
+        Next
+      </button>
+    </div>
+  </div>
+</div>
