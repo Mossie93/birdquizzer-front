@@ -1,0 +1,48 @@
+<div class='quiz-question'>
+  <div class='row'>
+    <div class='col-md-9'>
+      <h2 class='quiz-question__text'>
+        {{ question.questionText }}
+      </h2>
+      <h3 class='quiz-question__number'>
+        Question {{ question.number }} of {{questionsLength}}
+      </h3>
+    </div>
+  </div>
+  <div class='row'>
+    <div class=col-md-9>
+      <div *ngFor="let answer of answersList()">
+        <quiz-answer [marked]="isAnswerMarked(answer)" [answer]="answer" (click)="markAnswer(answer)">
+        </quiz-answer>
+      </div>
+    </div>
+    <div class='col-md-3 quiz-question__image-column'
+      *ngIf="question.smallImage"
+      (click)="lgModal.show()">
+      <img [src]="question.smallImage"/>
+      <div class='quiz-question__enlarge-link'>
+        <i class="material-icons">zoom_in</i>
+        Click to enlarge
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div bsModal #lgModal='bs-modal' class='modal fade' tabindex='-1' role='dialog' aria-labelledby='Question Image' aria-hidden='true'>
+  <div class='modal-dialog modal-lg'>
+    <div class='quiz-question__image-modal-content modal-content'>
+      <div class='modal-header'>
+        <h4 class='quiz-question__image-modal-title modal-title pull-left'>
+          Question {{ question.number }} of {{questionsLength}}
+        </h4>
+        <button type='button' class='close pull-right' (click)="lgModal.hide()" aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>
+      <div class='modal-body quiz-question__image-modal-body'>
+        <img [src]="question.largeImage" class='quiz-question__image--large'/>
+      </div>
+    </div>
+  </div>
+</div>
