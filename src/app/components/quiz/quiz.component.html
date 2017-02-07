@@ -1,0 +1,10 @@
+<div class='quiz' *ngIf="activeQuestion">
+  <quiz-question [question]="activeQuestion"
+    [questionsLength]="quiz?.questions?.length"
+  >
+  Fetching data...
+  </quiz-question>
+  <quiz-navigation (questionAnswerTrigger)="changeQuestion($event)" [quiz]="quiz" [question]="activeQuestion">
+    Fetching data...
+  </quiz-navigation>
+</div>
