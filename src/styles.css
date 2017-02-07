@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+html, body
+{
+  height: 100%;
+}
+
+body
+{
+  display: table;
+  margin: 0 auto;
+  background-color: #f4f5fb;
+}
+
+.application-content
+{
+  height: 100%;
+  margin-top: 100px;
+}
+
+.btn-grayed {
+  border:1px solid rgba(73,73,73,0.50);
+  color: #4a4a4a;
+  opacity: 0.6;
+  background-color: white;
+}
+
+.btn-rounded {
+  border-radius:30px;
+}
+
+.btn-purple, .btn-purple:active, .btn-purple:active {
+  background: #7e57c2;
+  color: white;
+}
+
+.btn-purple:hover {
+  background: #603ba0;
+  color: white;
+}
+
+.btn-white {
+  background: white;
+  color: #4a4a4a;
+}
+
+.btn-wide {
+  width: 50%;
+}
+
+.panel-square, .btn-square {
+  border-radius: 0;
+}
+
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 21px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-30 { font-size: 30px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
