@@ -1,0 +1,23 @@
+<div class='choose-quiz'>
+  <div class='choose-quiz__sub-menu'>
+    <a href='#' class='choose-quiz__sub-menu-link choose-quiz__sub-menu-link--active'>
+      Take quiz
+    </a>
+    <a href='#' class='choose-quiz__sub-menu-link' data-toggle='tooltip'
+      data-placement='bottom' title='Coming soon'>
+      History
+    </a>
+  </div>
+  <div class='row'>
+    <div class='col-md-8'>
+      <div *ngFor="let quizTemplate of quizTemplates" class='row'>
+        <quiz-template [quizTemplate]="quizTemplate" (selectedQuiz)="changeSelectedQuiz($event)">
+        </quiz-template>
+      </div>
+    </div>
+    <div class='col-md-4'>
+      <quiz-template-details [quizTemplate]="selectedQuiz">
+      </quiz-template-details>
+    </div>
+  </div>
+</div>
