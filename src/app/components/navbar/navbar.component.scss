@@ -1,0 +1,14 @@
+.application-navbar {
+  background: white;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.31);
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+}
+
+.application-navbar__brand {
+  font-size: 30px;
+  color: #4a4a4a;
+  letter-spacing: 3px;
+}
