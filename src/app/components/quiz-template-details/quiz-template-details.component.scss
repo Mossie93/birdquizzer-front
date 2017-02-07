@@ -1,0 +1,32 @@
+.quiz-template-details {
+  min-height: 290px;
+  padding: 5px;
+
+  &__title {
+    font-size: 21px;
+    color: #4a4a4a;
+    margin: 2px 0 18px 0;
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    color: #9b9b9b;
+    line-height: 22px;
+  }
+
+  &__start-button {
+    margin: 0 25%;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 0;
+
+    &:hover {
+      text-decoration: none;
+      color: white;
+    }
+
+    &:focus {
+      color: white;
+    }
+  }
+}

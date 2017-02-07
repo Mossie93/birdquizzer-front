@@ -1,0 +1,21 @@
+<div class='panel panel-square quiz-template-details'>
+  <div class='panel-body'>
+    <h2 class='quiz-template-details__title' *ngIf="quizTemplate">
+      {{ quizTemplate.name }}
+    </h2>
+    <h2 class='quiz-template-details__title' *ngIf="!quizTemplate">
+      Take Quiz
+    </h2>
+    <p class='quiz-template-details__paragraph' *ngIf="quizTemplate">
+      {{quizTemplate.longDescription}}
+    </p>
+    <p class='quiz-template-details__paragraph' *ngIf="!quizTemplate">
+      Select quiz on the left side and press "Start Quiz" to begin your birding adventure!
+    </p>
+  </div>
+</div>
+<button class='text-uppercase btn btn-wide btn-purple btn-round-square quiz-template-details__start-button'
+  (click)="createQuiz()"
+  [class.disabled]="!quizTemplate">
+  Start
+</button>
