@@ -1,0 +1,32 @@
+<div class='panel panel-square'>
+  <div class="panel-body quiz-template">
+    <div class='col-md-2'>
+      <img [src]="quizTemplate.coverImage" class='quiz-template__quiz-photo'/>
+    </div>
+    <div class='col-md-8'>
+      <div class='quiz-template__quiz-description'>
+        <h2 class='quiz-template__quiz-name'>
+          {{ quizTemplate.name }}
+        </h2>
+        <div class='quiz-template__quiz-short-description'>
+          {{ quizTemplate.description }}
+        </div>
+        <div class='quiz-template__quiz-difficulty'>
+          <span *ngFor="let number of range(quizTemplate.difficulty)" class='glyphicon glyphicon-star'>
+          </span>
+        </div>
+        <hr class='quiz-template__separator'/>
+        <div class='quiz-template__quiz-author'>
+          {{ quizTemplate.author }}
+        </div>
+      </div>
+    </div>
+    <div class='col-md-2'>
+      <div class='quiz-template__quiz-info-link'>
+        <button class='btn btn-grayed btn-rounded' (click)="quizTemplateSelected()">
+          More info
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
