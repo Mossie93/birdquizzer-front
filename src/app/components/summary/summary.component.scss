@@ -1,0 +1,33 @@
+.summary {
+  &__header {
+    position: relative;
+    margin-left: 9%;
+  }
+
+  &__total-score {
+    font-size: 24px;
+    font-weight: 200;
+    color:#4a4a4a;
+    margin: 58px 0 48px 0;
+  }
+
+  &__logo {
+    width: 82px;
+    height: 100px;
+    top: -23px;
+    right: 12px;
+    position: absolute;
+
+    @media all and (max-width: 767px) { /* Change Width Here */
+      & {
+         display: none;
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+  }
+}

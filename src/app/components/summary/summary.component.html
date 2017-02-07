@@ -1,0 +1,17 @@
+<div class='summary' *ngIf="quiz">
+  <div class='summary__header'>
+    <h2 class='summary__total-score'>
+      Total Score {{quiz.score}} / {{quiz?.questions?.length}}
+    </h2>
+    <img src='./assets/icons/owl-logo.png' class='summary__logo'/>
+  </div>
+  <div *ngFor="let question of quiz.questions">
+    <summary-question [question]="question" [questionsCount]="quiz.questions.length">
+    </summary-question>
+  </div>
+  <div class='col-md-12 summary__navigation'>
+    <a href='/choose-quiz' class='btn btn-purple btn-wide btn-square'>
+      Next quiz!
+    </a>
+  </div>
+</div>
