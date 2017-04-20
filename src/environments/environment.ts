@@ -5,5 +5,9 @@
 
 export const environment = {
   production: false,
-  apiHost: 'http://localhost:3000'
+  apiHost: 'http://localhost:3000',
+  auth0: {
+    clientID: 'NMuD2pwimaNMntSl0zi5VcI0FTPEHjZ7',
+    domain: 'birdquizzer.eu.auth0.com'
+  }
 };

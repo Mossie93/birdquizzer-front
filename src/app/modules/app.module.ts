@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, RequestOptions } from '@angular/http';
+import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -22,9 +23,16 @@ import { SummaryAnswerComponent } from '../components/summary-answer/summary-ans
 import { QuestionService } from '../services/question.service';
 import { QuizTemplateService } from '../services/quiz-template.service';
 import { QuizService } from '../services/quiz.service';
+import { Auth } from '../services/auth.service';
 
 import { ModalModule } from 'ng2-bootstrap/modal';
 import { CollapseModule } from 'ng2-bootstrap/collapse';
+
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp( new AuthConfig({}), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -54,6 +62,11 @@ import { CollapseModule } from 'ng2-bootstrap/collapse';
     QuestionService,
     QuizTemplateService,
     QuizService,
+    {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+    }
   ],
   bootstrap: [AppComponent]
 })

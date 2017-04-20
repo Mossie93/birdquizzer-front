@@ -7,10 +7,12 @@ import { QuizTemplate } from '../models/quiz-template';
 
 @Injectable()
 export class QuizTemplateService {
-  private quizTemplatesUrl = `${environment.apiHost}/api/v2/quiz_templates`;
+  private quizTemplatesUrl = 'http://localhost:3000/api/v2/quiz_templates';
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http: Http) {}
+  constructor(
+    private http: Http,
+  ) {}
 
   getQuizTemplates(): Promise<QuizTemplate[]> {
     return this.http.get(this.quizTemplatesUrl)

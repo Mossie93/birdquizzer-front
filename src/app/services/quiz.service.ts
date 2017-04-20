@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
+import { AuthHttp } from 'angular2-jwt';
 import 'rxjs/add/operator/toPromise';
 import { environment } from '../../environments/environment';
 
@@ -10,7 +11,10 @@ export class QuizService {
   private quizzesUrl = `${environment.apiHost}/api/v2/quizzes`;
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private http: Http) {}
+  constructor(
+    private http: Http,
+    public authHttp: AuthHttp
+  ) {}
 
   getQuiz(id: number): Promise<Quiz> {
     const url = `${this.quizzesUrl}/${id}`;
@@ -22,7 +26,7 @@ export class QuizService {
 
   createQuiz(quizTemplateId): Promise<Quiz> {
     const quiz = { quiz: { quiz_template_id: quizTemplateId }};
-    return this.http.post(this.quizzesUrl, JSON.stringify(quiz), { headers: this.headers })
+    return this.authHttp.post(this.quizzesUrl, JSON.stringify(quiz), { headers: this.headers })
       .toPromise()
       .then(response => response.json().quiz as Quiz)
       .catch(this.handleError);

@@ -9,7 +9,9 @@ import { QuizTemplate } from '../../models/quiz-template';
   styleUrls: ['./quiz-templates.component.scss']
 })
 export class QuizTemplatesComponent implements OnInit {
-  constructor(private quizTemplateService: QuizTemplateService) {}
+  constructor(
+    private quizTemplateService: QuizTemplateService,
+  ) {}
 
   quizTemplates: QuizTemplate[];
   selectedQuiz: QuizTemplate;
